@@ -1,0 +1,3 @@
+1.demo文件应该是一个easyUI+springboot小项目，功能很简单，就是一个查询，看了一下数据库是MySQL，连接的是我之前台式机上虚拟机，具体忘了，暂备于此；
+
+2.ssm说是一个MySQL数据往oracle数据导入的小程序，写的东西还挺多，当时主要是找springboot+mybatisplus+oracle才下的，没跑起来过，暂备于此。

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seawaterbt.ssm.dao.TbSchoolExamMapper">
+<insert id="insertExam" parameterType="com.seawaterbt.ssm.entity.TbSchoolExam">
+    insert into TB_SCHOOL_EXAM(gid,type,school_year,exam_date,exam_name,creator_gid)
+    VALUES(#{te.gid},#{te.type},#{te.schoolYear},#{te.examDate},#{te.examName},#{te.creatorGid})
+</insert>
+<select id="getStundentInfo" resultType="java.util.Map">
+ select b.school_name,bg.grade_name,bg.grade_number,bc.class_name,bc.order_num,s.rel_name,sd.idcard_num from s_user_basic_info s
+inner join u_user_role u on u.user_gid=s.gid
+inner join b_school b on b.gid=s.school_gid
+inner join b_school_class bc on bc.gid=s.school_class_gid
+inner join b_school_grade bg on bg.gid=bc.grade_gid
+inner join s_user_detail_info sd on sd.gid=s.detail_info_gid
+where u.role_code='002'
+order by b.gid,bg.grade_number,bc.order_num
+</select>
+</mapper>
